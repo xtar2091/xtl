@@ -1,5 +1,7 @@
 file(GLOB_RECURSE XTL_SRC_LIST
-        *.cpp)
+        *.cpp
+        string/*.cpp
+        string/impl/*.cpp)
 
 include_directories(${PROJECT_SOURCE_DIR})
 
