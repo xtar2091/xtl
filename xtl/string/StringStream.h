@@ -53,10 +53,12 @@ public:
 	StringStream& Append(const char* s);
 	StringStream& Append(const std::string& s);
 
+    StringStream& AppendCurrentTime(const char* fmt);
+
     void Clear();
 	const char* GetBuffer() const;
 	std::string GetString();
-	int Size();
+	int Size() const;
 
 private:
     StringStreamImpl* impl_;

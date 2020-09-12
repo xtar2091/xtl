@@ -160,6 +160,11 @@ StringStream& StringStream::Append(char c) {
 		return *this;
 	}
 
+	StringStream& StringStream::AppendCurrentTime(const char* fmt) {
+		impl_->AppendCurrentTime(fmt);
+		return *this;
+	}
+
 	void StringStream::Clear() {
 		impl_->Clear();
 	}
@@ -172,7 +177,7 @@ StringStream& StringStream::Append(char c) {
 		return impl_->GetString();
 	}
 
-	int StringStream::Size() {
+	int StringStream::Size() const {
 		return impl_->Size();
 	}
 

@@ -4,7 +4,7 @@ project(xtl)
 add_compile_options(
     -std=c++11
     -g
-    -O0
+    -O2
 )
 
 add_subdirectory(xtl)

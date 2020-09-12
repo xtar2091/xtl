@@ -40,12 +40,14 @@ public:
     StringStreamImpl& Append(const char* s, int len);
     StringStreamImpl& Append(const std::string& s);
 
+    StringStreamImpl& AppendCurrentTime(const char* fmt);
+
     StringStreamImpl* Clone();
 
     void Clear();
     const char* GetBuffer() const { return buf_; }
     std::string GetString() { return std::string(buf_); }
-    int Size() { return static_cast<int>(tail_ - buf_); }
+    int Size() const { return static_cast<int>(tail_ - buf_); }
 
 private:
     bool Expand(int min_expand_len);

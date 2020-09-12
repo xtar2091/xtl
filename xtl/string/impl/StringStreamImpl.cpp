@@ -1,6 +1,7 @@
 #include "xtl/string/impl/StringStreamImp.h"
 
 #include <cstring>
+#include <ctime>
 
 namespace xtl {
 
@@ -144,6 +145,19 @@ StringStreamImpl& StringStreamImpl::Append(const char* s, int slen) {
 
 StringStreamImpl& StringStreamImpl::Append(const std::string& s) {
     Append(s.c_str(), static_cast<int>(s.size()));
+    return *this;
+}
+
+StringStreamImpl& StringStreamImpl::AppendCurrentTime(const char* fmt) {
+    int left = static_cast<int>(len_ - (tail_ - buf_));
+    if (left < 32) {
+        if (!Expand(0)) {
+            return *this;
+        }
+    }
+    time_t t = time(NULL);
+    size_t len = strftime(tail_, left, fmt, localtime(&t));
+    tail_ += len;
     return *this;
 }
 
