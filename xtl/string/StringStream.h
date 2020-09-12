@@ -51,6 +51,7 @@ public:
 	StringStream& Append(long long n);
 	StringStream& Append(unsigned long long n);
 	StringStream& Append(const char* s);
+    StringStream& Append(const char* s, int len);
 	StringStream& Append(const std::string& s);
 
     StringStream& AppendCurrentTime(const char* fmt);
@@ -59,6 +60,7 @@ public:
 	const char* GetBuffer() const;
 	std::string GetString();
 	int Size() const;
+    int Available() const;
 
 private:
     StringStreamImpl* impl_;

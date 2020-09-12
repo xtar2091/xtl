@@ -48,6 +48,7 @@ public:
     const char* GetBuffer() const { return buf_; }
     std::string GetString() { return std::string(buf_); }
     int Size() const { return static_cast<int>(tail_ - buf_); }
+    int Available() const { return len_; }
 
 private:
     bool Expand(int min_expand_len);

@@ -155,6 +155,11 @@ StringStream& StringStream::Append(char c) {
 		return *this;
 	}
 
+	StringStream& StringStream::Append(const char* s, int len) {
+		impl_->Append(s, len);
+		return *this;
+	}
+
 	StringStream& StringStream::Append(const std::string& s) {
 		impl_->Append(s);
 		return *this;
@@ -179,6 +184,10 @@ StringStream& StringStream::Append(char c) {
 
 	int StringStream::Size() const {
 		return impl_->Size();
+	}
+
+	int StringStream::Available() const {
+		return impl_->Available();
 	}
 
 }
